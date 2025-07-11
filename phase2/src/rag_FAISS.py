@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 from langchain_nomic import NomicEmbeddings
 from langchain_community.vectorstores import FAISS
@@ -10,7 +11,7 @@ FAISS_INDEX_PATH = "faiss_index"
 # Define the path to your data
 # For this example, create a file named 'data.txt' in the 'phase2/data' directory
 # with the content you want to index.
-DATA_PATH = "../data/data.txt"
+DATA_PATH = "./data/data.txt"
 
 # 1. Create embeddings
 # This needs to be available both for creating and loading the index

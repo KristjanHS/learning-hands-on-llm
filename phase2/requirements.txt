@@ -5,6 +5,9 @@ langchain
 langchain-community
 langchain-nomic
 weaviate-client
+pypdf
+pyyaml
+tqdm
 
 # BELOW: the contents of phase1 requirements.txt
 
