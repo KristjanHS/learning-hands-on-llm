@@ -1,6 +1,6 @@
 {
     "recommendations": [
         "charliermarsh.ruff",
-        "google.geminicodeassist"
+        "ms-python.python"
     ]
 }
