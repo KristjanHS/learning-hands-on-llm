@@ -2,7 +2,7 @@
 
 # Python & environment
 PYTHON := $(VENV)/bin/python
-PYTHON_EXECUTABLE ?= python3.11
+PYTHON_EXECUTABLE ?= python3
 VENV := $(CURDIR)/.venv
 
 # Default: help
@@ -40,4 +40,3 @@ jupyter:  check-venv ## Start Jupyter Notebook server
 clean:  ## Remove compiled files and cache
 	rm -rf __pycache__ */__pycache__ *.pyc *.o *.out
 	rm -f stage0/bin/test_WSL_Cuda_devicecount
-
