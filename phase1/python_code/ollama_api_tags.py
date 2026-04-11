@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 import requests
 
 from phase1.python_code.windows_ip_in_wsl import get_windows_host_ip

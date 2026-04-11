@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 # This script benchmarks the Ollama API by sending a chat completion request and measuring the
 # response time, while also collecting token usage statistics.
 # It uses the OpenAI-compatible /api/chat endpoint

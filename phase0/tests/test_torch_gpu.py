@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 # tests/test_torch_gpu.py
 import torch
 

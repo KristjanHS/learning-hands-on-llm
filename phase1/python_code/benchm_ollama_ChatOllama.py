@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 # This script benchmarks the Ollama API by sending a chat completion request
 # and measuring the response time, while also collecting token usage statistics.
 # It uses the get_llm_response function from helper_functions.py to interact with a
 # local Ollama server.
 # The endpoint is the OpenAI-compatible /v1/chat/completions API.
-
 import argparse
 import statistics
 import time

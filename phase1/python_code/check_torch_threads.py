@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 # This script checks the number of threads used by PyTorch.
 # It is useful to verify that the number of threads is set correctly for performance tuning.
 # It should match the number of CPU cores available on the system.

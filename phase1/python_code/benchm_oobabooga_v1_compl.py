@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 # this script benchmarks the Oobabooga Text-Generation Web UI via its direct HTTP API.
 # It sends a completion request to the /v1/completions endpoint and measures the response time,
-
 import argparse
 import statistics
 import time

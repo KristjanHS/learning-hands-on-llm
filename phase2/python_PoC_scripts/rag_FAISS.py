@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 import os
 
 from langchain.text_splitter import CharacterTextSplitter

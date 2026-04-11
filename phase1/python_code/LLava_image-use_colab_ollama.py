@@ -8,6 +8,8 @@ The LLaVA model is a large language and vision model that can describe images in
 The code sends an image to the LLaVA model and retrieves a description of the image.
 """
 
+from __future__ import annotations
+
 from ollama import Client
 
 # Replace the URL with your localtunnel URL

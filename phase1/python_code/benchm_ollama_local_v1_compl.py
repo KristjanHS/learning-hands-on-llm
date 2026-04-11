@@ -4,6 +4,8 @@ Benchmark local Ollama via its OpenAI-compatible API with accurate token stats.
 Sends a prompt to the /v1/completions endpoint and measures response time and token usage.
 """
 
+from __future__ import annotations
+
 import argparse
 import statistics
 import time

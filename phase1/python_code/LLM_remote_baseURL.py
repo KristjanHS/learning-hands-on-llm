@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 # Text-completion style (LLM interface) ------------
 from langchain_ollama import OllamaLLM
 

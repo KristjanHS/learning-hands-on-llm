@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+from __future__ import annotations
+
 import weaviate
 
 # No explicit authentication needed for default local instances

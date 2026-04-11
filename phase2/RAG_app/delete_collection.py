@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import weaviate
 from config import COLLECTION_NAME
 

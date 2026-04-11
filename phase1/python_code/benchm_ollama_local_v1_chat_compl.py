@@ -4,6 +4,8 @@ Benchmark the Ollama API by sending a chat completion request and measuring the 
 Uses the OpenAI-compatible /v1/chat/completions endpoint and reports token usage statistics.
 """
 
+from __future__ import annotations
+
 import argparse
 import statistics
 import time

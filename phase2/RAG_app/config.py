@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 COLLECTION_NAME = "Document"
 
 # Text splitting parameters

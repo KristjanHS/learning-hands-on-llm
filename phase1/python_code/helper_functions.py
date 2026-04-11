@@ -3,6 +3,8 @@
 Helper functions for LLM and benchmarking scripts.
 """
 
+from __future__ import annotations
+
 from langchain_core.messages import HumanMessage
 from langchain_ollama import ChatOllama
 

@@ -7,6 +7,8 @@ and returns it.
 In WSL, the windows host IP is typically the default gateway.
 """
 
+from __future__ import annotations
+
 import re
 import subprocess  # nosec B404
 from typing import Optional
