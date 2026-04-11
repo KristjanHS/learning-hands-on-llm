@@ -2,6 +2,11 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+# Not a distributable library — explicit empty package list prevents setuptools
+# from auto-discovering phase0/phase1/phase2 as top-level packages.
+[tool.setuptools.packages.find]
+include = ["hands_on_llm*"]
+
 [project]
 name = "hands-on-llm"
 version = "0.1.0"
@@ -102,8 +107,9 @@ ignore = ["E203", "E401", "E302", "E305"]  # carried over from legacy .flake8 co
 quote-style = "double"
 
 [tool.pytest.ini_options]
-addopts = "-ra -q"
+addopts = "-ra -q --import-mode=importlib"
 testpaths = ["phase0/tests", "phase1/tests", "phase2/tests"]
+pythonpath = ["."]
 
 # torch requires the CUDA-specific PyPI index — uv resolves this automatically
 [tool.uv.sources]
