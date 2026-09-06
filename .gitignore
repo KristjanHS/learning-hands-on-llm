@@ -83,3 +83,6 @@ secrets/
 
 # Compiled binaries
 phase0/bin/
+
+# Claude Code deny list (repo-shared)
+!.claude/settings.json
