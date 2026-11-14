@@ -107,7 +107,7 @@ Set a sane locale early; several Python wheels barf on missing UTF-8.
 
 ## 1. CUDA 12.5 toolkit inside WSL 2 (optional but recommended)
 
-CUDA 
+CUDA
 12.5 drops the ancient 525 driver dependency and includes bug-fixed `nvcc`.
 
 ```bash
@@ -224,7 +224,7 @@ Good for quick tests without polluting the host env.
 ```bash
 sudo apt install -y build-essential cmake git ninja-build pkg-config
 cd ~/projects && git clone https://github.com/ggml-org/llama.cpp.git
-cd llama.cpp && git pull      # ensure 
+cd llama.cpp && git pull      # ensure
  Feb-2025 commit
 cmake -S . -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=86
 cmake --build build -j$(nproc)

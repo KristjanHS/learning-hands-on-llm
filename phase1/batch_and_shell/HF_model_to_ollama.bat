@@ -14,7 +14,7 @@ REM -------------------------------------------------------------------
 setlocal ENABLEDELAYEDEXPANSION
 
 REM -------------------------------------------------------------------
-REM 1) Validate input argument (repo path)  
+REM 1) Validate input argument (repo path)
 REM -------------------------------------------------------------------
 if "%~1"=="" (
   echo Usage: %~nx0 huggingface-repo-path
@@ -23,13 +23,13 @@ if "%~1"=="" (
 set "REPO=%~1"
 
 REM -------------------------------------------------------------------
-REM 2) Download the model index (tree) JSON from Hugging Face API  
+REM 2) Download the model index (tree) JSON from Hugging Face API
 REM -------------------------------------------------------------------
 echo Fetching file list from %REPO% ...
 curl -s https://huggingface.co/api/models/%REPO%/tree/main > model.json
 
 REM -------------------------------------------------------------------
-REM 3) Parse out all “.gguf” file paths into files.txt  
+REM 3) Parse out all “.gguf” file paths into files.txt
 REM    Using FINDSTR to pick lines containing .gguf and FOR to extract
 REM -------------------------------------------------------------------
 for /f "tokens=2 delims=:" %%A in (^
@@ -48,8 +48,8 @@ if not exist files.txt (
 )
 
 REM -------------------------------------------------------------------
-REM 4) Display a numbered menu of available .gguf files  
-REM    Store each filename in an environment array for selection  
+REM 4) Display a numbered menu of available .gguf files
+REM    Store each filename in an environment array for selection
 REM -------------------------------------------------------------------
 echo.
 echo Available .gguf files:
@@ -61,11 +61,11 @@ for /f "usebackq delims=" %%F in ("files.txt") do (
 )
 
 REM -------------------------------------------------------------------
-REM 5) Prompt user to choose which .gguf to download  
-REM    Loop until a valid number is entered  
+REM 5) Prompt user to choose which .gguf to download
+REM    Loop until a valid number is entered
 REM -------------------------------------------------------------------
 :select
-set /p CHOICE=Enter number to download: 
+set /p CHOICE=Enter number to download:
 call set "FILENAME=%%FILE[%CHOICE%]%%"
 if "%FILENAME%"=="" (
   echo Invalid choice. Try again.
@@ -74,7 +74,7 @@ if "%FILENAME%"=="" (
 echo Selected: %FILENAME%
 
 REM -------------------------------------------------------------------
-REM 6) Prepare target directory name by stripping “.gguf” and replacing slashes  
+REM 6) Prepare target directory name by stripping “.gguf” and replacing slashes
 REM -------------------------------------------------------------------
 set "BASENAME=%FILENAME:.gguf=%"
 set "BASENAME=%BASENAME:/=-%"
@@ -82,8 +82,8 @@ set "DIR=ollama-%BASENAME%"
 mkdir "%DIR%" 2>nul
 
 REM -------------------------------------------------------------------
-REM 7) Download the chosen .gguf via Hugging Face CLI  
-REM    Then write a Modelfile, build & run via ollama  
+REM 7) Download the chosen .gguf via Hugging Face CLI
+REM    Then write a Modelfile, build & run via ollama
 REM -------------------------------------------------------------------
 echo Downloading model file...
 huggingface-cli download %REPO% --include %FILENAME% --local-dir "%DIR%" --local-dir-use-symlinks False ^
@@ -100,7 +100,7 @@ huggingface-cli download %REPO% --include %FILENAME% --local-dir "%DIR%" --local
   && ollama run %BASENAME%
 
 REM -------------------------------------------------------------------
-REM 8) Clean up temporary JSON and listing file, end delayed expansion  
+REM 8) Clean up temporary JSON and listing file, end delayed expansion
 REM -------------------------------------------------------------------
 del model.json files.txt
 endlocal

@@ -46,43 +46,43 @@ If the update to `phase1/Gemini_CLI_setup.md` is already part of a commit in the
 
 # Switching back to the `main` branch in Git
 
-### Using `git switch` (Recommended) 
+### Using `git switch` (Recommended)
 
-To switch to the `main` branch, simply run: 
+To switch to the `main` branch, simply run:
 
 ```bash
 git switch main
-``` 
+```
 
-### Handling Uncommitted Changes 
+### Handling Uncommitted Changes
 If you have uncommitted changes in your current branch that would be overwritten by switching to main, Git will prevent the switch. You have a few options in this scenario:
 
-1.  **Commit the changes:** If the changes are complete, commit them to your current branch before switching. 
+1.  **Commit the changes:** If the changes are complete, commit them to your current branch before switching.
     ```bash
     git commit -m "Your commit message"
-    ``` 
+    ```
 
-2.  **Stash the changes:** If you're not ready to commit, you can temporarily store your changes using `git stash`. 
+2.  **Stash the changes:** If you're not ready to commit, you can temporarily store your changes using `git stash`.
     ```bash
     git stash
-    ``` 
-    After switching to `main`, you can reapply these changes later with `git stash pop`. 
+    ```
+    After switching to `main`, you can reapply these changes later with `git stash pop`.
 
-3.  **Discard the changes:** If you don't want to keep the changes, you can discard them. With `git switch`, you can use the `--discard-changes` flag: 
+3.  **Discard the changes:** If you don't want to keep the changes, you can discard them. With `git switch`, you can use the `--discard-changes` flag:
     ```bash
     git switch main --discard-changes
-    ``` 
-    With `git checkout`, you would typically reset the files first: 
+    ```
+    With `git checkout`, you would typically reset the files first:
     ```bash
     git checkout .
-    ``` 
+    ```
 
-### Updating Your Local `main` Branch 
+### Updating Your Local `main` Branch
 
-After switching to the `main` branch, it's a good practice to ensure it's up-to-date with the remote repository. You can do this by running: 
+After switching to the `main` branch, it's a good practice to ensure it's up-to-date with the remote repository. You can do this by running:
 
 ```bash
 git pull origin main
-``` 
+```
 
 This command fetches the latest changes from the `main` branch on the `origin` remote and merges them into your local `main` branch.

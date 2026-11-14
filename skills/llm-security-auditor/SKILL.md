@@ -121,7 +121,7 @@ Use this exact format for your report:
 
 ### 🔍 Security Audit Report
 
-**Files scanned:** {N}  
+**Files scanned:** {N}
 **Threats found:** {CRITICAL: X | WARNING: Y | CLEAN: Z}
 
 ---

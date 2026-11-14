@@ -17,7 +17,7 @@ FROM semitechnologies/transformers-inference:sentence-transformers-all-MiniLM-L6
 #    --extra-index-url https://download.pytorch.org/whl/cu128
 
 
-# I NEVER GOT THIS TO WORK - every time i tried to run docker compose up, 
+# I NEVER GOT THIS TO WORK - every time i tried to run docker compose up,
 # it would fail with t2v-transformers-1 exited with code 0
 # Add wrapper that converts Docker secret into environment variable
 # COPY docker-entrypoint.sh /docker-entrypoint.sh
