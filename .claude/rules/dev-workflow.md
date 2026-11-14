@@ -5,6 +5,7 @@ paths: "**/*.py"
 
 ## Build + Test
 Use uv for venv and dependency management.
+System Python is 3.14 (no torch wheels yet) — always use `uv run --python 3.12`.
 Run pytest once per step. Never re-run to "confirm".
 Always verify via pytest, not ad-hoc `python3 -c` scripts.
 
