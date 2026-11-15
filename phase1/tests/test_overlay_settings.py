@@ -24,6 +24,22 @@ def test_env_wins_over_companion(companion, monkeypatch):
     assert read_setting("NGROK_DOMAIN") == "tmp.example"
 
 
+def test_repeated_key_last_wins(companion):
+    (companion / "settings.env").write_text("NGROK_DOMAIN=first.example\nNGROK_DOMAIN=second.example\n")
+    assert read_setting("NGROK_DOMAIN") == "second.example"
+
+
+def test_utf8_bom_ignored(companion):
+    (companion / "settings.env").write_text("﻿NGROK_DOMAIN=real.example\n", encoding="utf-8")
+    assert read_setting("NGROK_DOMAIN") == "real.example"
+
+
+def test_empty_file_value_exits(companion):
+    (companion / "settings.env").write_text("NGROK_DOMAIN=\n")
+    with pytest.raises(SystemExit, match="NGROK_DOMAIN unset"):
+        read_setting("NGROK_DOMAIN")
+
+
 def test_companion_absent_exits_with_named_key(companion):
     with pytest.raises(SystemExit, match=r"NGROK_DOMAIN unset: .*settings\.env"):
         read_setting("NGROK_DOMAIN")

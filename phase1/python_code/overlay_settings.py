@@ -34,9 +34,12 @@ def read_setting(key: str) -> str:
     if value := os.environ.get(key):
         return value
     path = overlay_dir() / "settings.env"
+    found = ""
     if path.is_file():
-        for line in path.read_text(encoding="utf-8").splitlines():
+        for line in path.read_text(encoding="utf-8-sig").splitlines():
             name, _, value = line.partition("=")
             if name == key:
-                return value
+                found = value  # last assignment wins, as with bash `. file`
+    if found:
+        return found
     raise SystemExit(f"{key} unset: export it or add {key}=<value> to {path}")
