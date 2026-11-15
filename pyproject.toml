@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 # Phase extras are cumulative — phase2 includes everything from phase1 and phase0.
-# Install with: uv sync --extra phase2 --extra dev
+# Install with: uv sync --extra phase2
 [project.optional-dependencies]
 phase0 = [
     "notebook",
@@ -51,6 +51,7 @@ phase1 = [
     "ollama",
     "openai",
     "python-dotenv",
+    "requests",
 ]
 phase2 = [
     # phase1 deps (includes phase0)
@@ -83,9 +84,13 @@ phase2 = [
     "sentence-transformers",
     "langdetect",
 ]
+
+# `uv run` / `uv sync` install this group by default, so `uv run pytest` uses the venv's pytest + CUDA torch.
+[dependency-groups]
 dev = [
     "ruff",
     "pytest",
+    "requests",  # imported by phase1 tests
     "pre-commit",
     "mypy",
 ]

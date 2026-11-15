@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v6
-      - run: uv sync --extra dev
-      # || true: tests require GPU/Ollama — remove when tests are mockable
-      - run: uv run pytest --tb=short || true
+        with:
+          python-version: "3.12"  # torch 2.7.1 has no cp314 wheel
+      - run: uv sync
+      - run: uv run pytest --tb=short
