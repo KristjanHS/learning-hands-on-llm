@@ -16,9 +16,11 @@ jobs:
       # ruff-action bundles its own ruff binary — no setup-uv needed here
       - uses: astral-sh/ruff-action@v3
         with:
+          version: "0.15.10"  # = .pre-commit-config.yaml rev + uv.lock
           args: "check"
       - uses: astral-sh/ruff-action@v3
         with:
+          version: "0.15.10"  # = .pre-commit-config.yaml rev + uv.lock
           args: "format --check"
 
   test:
