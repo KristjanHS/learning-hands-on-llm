@@ -12,8 +12,10 @@ from __future__ import annotations
 
 from ollama import Client
 
-# Replace the URL with your localtunnel URL
-host = "https://<your-ngrok-domain>/"
+from phase1.python_code.overlay_settings import read_setting
+
+# Tunnel host: env var, else the optional local overlay (see overlay_settings.py)
+host = f"https://{read_setting('NGROK_DOMAIN')}/"
 
 # Initialize the Ollama client.
 ollama_client = Client(host)

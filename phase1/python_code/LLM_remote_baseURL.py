@@ -5,9 +5,11 @@ from __future__ import annotations
 # Text-completion style (LLM interface) ------------
 from langchain_ollama import OllamaLLM
 
+from phase1.python_code.overlay_settings import read_setting
+
 llm = OllamaLLM(
     model="llama3:instruct",  # tag that exists locally
-    base_url="https://<your-ngrok-domain>",
+    base_url=f"https://{read_setting('NGROK_DOMAIN')}",
     temperature=0.0,
 )
 
