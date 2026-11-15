@@ -1,5 +1,5 @@
 # DEPRECATED: Dependencies now managed in root pyproject.toml.
-# Install with: uv sync --extra phase0 --extra dev
+# Install with: uv sync --extra phase0
 # This file kept as documentation only.
 
 # --- Core ML / GPU stack ---

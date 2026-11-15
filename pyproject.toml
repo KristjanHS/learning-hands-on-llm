@@ -71,6 +71,7 @@ phase2 = [
     "ollama",
     "openai",
     "python-dotenv",
+    "requests",
     # phase2-specific: RAG tooling
     "faiss-cpu",
     "nomic",

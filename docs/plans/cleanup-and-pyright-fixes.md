@@ -36,7 +36,7 @@
 - `requests` → phase1 (used by benchm_ollama_*.py, ollama_api_tags.py)
 - `httpx` → phase2 (used by qa_loop.py)
 
-**Already in extras but not installed** (just need `uv sync --extra phase2 --extra dev`):
+**Already in extras but not installed** (just need `uv sync --extra phase2`):
 - `langchain-ollama`, `langchain-core`, `ollama` (phase1)
 - `weaviate-client`, `langchain`, `langchain-community`, `langchain-nomic`, `langdetect` (phase2)
 - `matplotlib`, `pandas` (phase1)
@@ -45,7 +45,7 @@
 1. Add `"requests"` to phase1 extras in `pyproject.toml`
 2. Add `"httpx"` to phase2 extras in `pyproject.toml`
 3. Run `uv lock` to regenerate lockfile
-4. Run `uv sync --extra phase2 --extra dev` to install all deps
+4. Run `uv sync --extra phase2` to install all deps
 5. Verify pyright `reportMissingImports` errors are resolved
 
 **Files to modify**: `pyproject.toml`
