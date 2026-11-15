@@ -26,7 +26,7 @@ def parse_args():
         help="Ollama API host (default: detected Windows host IP, or localhost if not found)",
         # Uses get_windows_host_ip from windows_ip_in_wsl.py
         # localhost  # WSL ollama host
-        # localhost  # Windows ollama host
+        # <windows-host-ip>  # Windows ollama host
     )
     p.add_argument("--port", "-P", type=int, default=11434, help="Ollama API port (default: 11434)")
     p.add_argument("--model", "-m", default="mistral", help="Model name (default: mistral)")

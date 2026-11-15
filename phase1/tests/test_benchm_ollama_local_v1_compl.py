@@ -4,7 +4,7 @@ from __future__ import annotations
 from unittest.mock import MagicMock, patch
 
 # This import assumes that pytest is run from the project root directory
-# (e.g., ~/projects/hands-on-llm)
+# (the repo root)
 from phase1.python_code.benchm_ollama_local_v1_compl import call_ollama_api
 
 

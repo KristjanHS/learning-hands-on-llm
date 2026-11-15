@@ -39,8 +39,8 @@ print(response)
 
 """
 (.venv) user@host:~/projects/hands-on-llm/phase1$
-~/projects/hands-on-llm/.venv/bin/python \
-  ~/projects/hands-on-llm/phase1/src/use_colab_ollama.py
+../.venv/bin/python \
+  src/use_colab_ollama.py
  The image shows a very blurred Eiffel Tower, which is an iconic landmark
  located in Paris, France.
  The tower appears to be slightly tilted and the sky is blue, suggesting it
