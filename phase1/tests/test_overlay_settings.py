@@ -45,6 +45,37 @@ def test_companion_absent_exits_with_named_key(companion):
         read_setting("NGROK_DOMAIN")
 
 
+@pytest.mark.parametrize(
+    "bad_line",
+    [
+        "NGROK_DOMAIN=secretvalue ",
+        "export NGROK_DOMAIN=secretvalue",
+        'NGROK_DOMAIN="secretvalue"',
+        "NGROK_DOMAIN=$secretvalue",
+        "NGROK_DOMAIN=secretvalue # c",
+    ],
+    ids=["trailing-space", "export", "double-quotes", "dollar", "inline-comment"],
+)
+def test_forbidden_line_rejected_with_location_not_value(companion, bad_line):
+    path = companion / "settings.env"
+    path.write_text(f"# header\nOTHER=ok\n{bad_line}\n")
+    with pytest.raises(SystemExit) as excinfo:
+        read_setting("NGROK_DOMAIN")
+    message = str(excinfo.value)
+    assert f"{path}:3:" in message
+    assert "secretvalue" not in message
+
+
+def test_crlf_and_bom_accepted(companion):
+    (companion / "settings.env").write_bytes(b"\xef\xbb\xbf# c\r\nNGROK_DOMAIN=real.example\r\n\r\n")
+    assert read_setting("NGROK_DOMAIN") == "real.example"
+
+
+def test_last_key_wins_across_other_keys(companion):
+    (companion / "settings.env").write_text("NGROK_DOMAIN=first.example\nOTHER=x\nNGROK_DOMAIN=third.example\n")
+    assert read_setting("NGROK_DOMAIN") == "third.example"
+
+
 def test_default_overlay_dir_is_sibling_of_main_checkout(monkeypatch):
     monkeypatch.delenv(OVERLAY_DIR_ENV, raising=False)
     root = overlay_settings._main_root()
