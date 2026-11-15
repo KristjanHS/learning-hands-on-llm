@@ -10,7 +10,7 @@ from pathlib import Path
 OVERLAY_DIR_ENV = "LEARNING_HANDS_ON_LLM_OVERLAY_DIR"
 OVERLAY_NAME = "learning-hands-on-llm-overlay"
 # Shared contract with my-vector's bash reader: every non-blank, non-`#` line must match.
-_LINE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*=[^\s\"'$`#\\]*")
+_LINE = re.compile(r"[A-Za-z_][A-Za-z0-9_]*=[^\s\"'$`#\\]*", re.ASCII)  # = bash LC_ALL=C [:space:]
 
 
 def _main_root() -> Path:
