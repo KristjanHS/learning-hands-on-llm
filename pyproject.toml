@@ -114,7 +114,7 @@ quote-style = "double"
 
 [tool.pytest.ini_options]
 addopts = "-ra -q --import-mode=importlib"
-testpaths = ["phase0/tests", "phase1/tests", "phase2/tests"]
+testpaths = ["tests", "phase0/tests", "phase1/tests", "phase2/tests"]
 pythonpath = ["."]
 
 # torch requires the CUDA-specific PyPI index — uv resolves this automatically
